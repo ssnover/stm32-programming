@@ -9,7 +9,7 @@ cortex-m = "0.7.6"
 cortex-m-rt = { version = "0.7.1", features = ["device"] }
 nb = "1.0.0"
 panic-halt = "0.2"
-stm32f3xx-hal = { version = "0.9.1", features = ["rt", "stm32f302x8"]}
+stm32f3xx-hal = { version = "0.9.1", default-features = false, features = ["rt", "stm32f302x8"]}
 
 [profile.dev]
 codegen-units = 1

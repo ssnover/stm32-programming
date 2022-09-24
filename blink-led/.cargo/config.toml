@@ -1,8 +1,10 @@
 [target.'cfg(all(target_arch = "arm", target_os = "none"))']
 runner = "probe-run --chip STM32F302R8Tx"
 rustflags = [
-  #"-C", "linker=flip-link",
-  "-C", "link-arg=-Tnucleo.x",
+  "-C", "linker=flip-link",
+  # This linker script comes from cortex-m-rt and expects a memory.x script provided
+  # by the user.
+  "-C", "link-arg=-Tlink.x",
   # This is needed if your flash or ram addresses are not aligned to 0x10000 in memory.x
   # See https://github.com/rust-embedded/cortex-m-quickstart/pull/95
   "-C", "link-arg=--nmagic",
